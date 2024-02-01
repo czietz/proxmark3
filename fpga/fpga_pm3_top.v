@@ -111,6 +111,7 @@ always @(posedge spck) if (~ncs) shift_reg <= {shift_reg[14:0], mosi};
 reg trace_enable;
 
 reg [7:0] lf_ed_threshold;
+reg [10:0] hf_edge_detect_threshold;
 
 // adjustable frequency clock
 wire [7:0] pck_cnt;
@@ -123,6 +124,11 @@ reg [11:0] conf_word;
 `else
 reg [8:0] conf_word;
 `endif
+
+initial
+begin
+    hf_edge_detect_threshold <= 15;
+end
 
 // We switch modes between transmitting to the 13.56 MHz tag and receiving
 // from it, which means that we must make sure that we can do so without
@@ -322,7 +328,7 @@ hi_iso14443a hisn(
     .pwr_oe3    (mux2_pwr_oe3),
     .pwr_oe4    (mux2_pwr_oe4),
     .debug      (mux2_debug),
-    .edge_detect_threshold (15)
+    .edge_detect_threshold (hf_edge_detect_threshold)
 );
 `endif // WITH_HF2
 
