@@ -142,7 +142,7 @@ hi_iso14443a hisn(
     .ssp_dout   (ssp_dout),
     .ssp_clk    (hisn_ssp_clk),
     .debug      (hisn_debug),
-    .mod_type   (minor_mode)
+    .mod_type   (minor_mode),
     .edge_detect_threshold (3)
 );
 
