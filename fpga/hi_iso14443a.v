@@ -20,6 +20,7 @@ module hi_iso14443a(
     input [7:0] adc_d,
     input [3:0] mod_type,
     input [10:0] edge_detect_threshold,
+    input [10:0] edge_detect_threshold_high,
     input ssp_dout,
 
     output ssp_din,
@@ -227,7 +228,7 @@ begin
         if (mod_type == `FPGA_HF_ISO14443A_SNIFFER)
         begin
             // detect modulation signal: if modulating, there must have been a falling AND a rising edge
-            if ((rx_mod_falling_edge_max > edge_detect_threshold) && (rx_mod_rising_edge_max < -edge_detect_threshold))
+            if ((rx_mod_falling_edge_max > edge_detect_threshold_high) && (rx_mod_rising_edge_max < -edge_detect_threshold_high))
                 curbit <= 1'b1; // modulation
             else
                 curbit <= 1'b0; // no modulation
