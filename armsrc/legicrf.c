@@ -64,7 +64,7 @@ static uint32_t last_frame_end; /* ts of last bit of previews rx or tx frame */
 #define LEGIC_CARD_MEMSIZE 1024 /* The largest Legic Prime card is 1k */
 #define WRITE_LOWERLIMIT      4 /* UID and MCC are not writable */
 
-#define INPUT_THRESHOLD       8 /* heuristically determined, lower values */
+#define INPUT_THRESHOLD       15 /* heuristically determined, lower values */
 /* lead to detecting false ack during write */
 
 //-----------------------------------------------------------------------------
