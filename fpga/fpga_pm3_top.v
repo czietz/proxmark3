@@ -128,7 +128,7 @@ reg [8:0] conf_word;
 
 initial
 begin
-    hf_edge_detect_threshold <= 7;
+    hf_edge_detect_threshold <= 15;
     hf_edge_detect_threshold_high <= 20;
 end
 
