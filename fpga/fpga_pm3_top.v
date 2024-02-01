@@ -321,7 +321,8 @@ hi_iso14443a hisn(
     .pwr_oe2    (mux2_pwr_oe2),
     .pwr_oe3    (mux2_pwr_oe3),
     .pwr_oe4    (mux2_pwr_oe4),
-    .debug      (mux2_debug)
+    .debug      (mux2_debug),
+    .edge_detect_threshold (15)
 );
 `endif // WITH_HF2
 
