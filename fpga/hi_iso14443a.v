@@ -214,13 +214,6 @@ reg signed [10:0] rx_mod_falling_edge_max;
 reg signed [10:0] rx_mod_rising_edge_max;
 reg curbit;
 
-`ifdef PM3ICOPYX
-`define EDGE_DETECT_THRESHOLD   3
-`else
-`define EDGE_DETECT_THRESHOLD  15 
-`endif
-`define EDGE_DETECT_THRESHOLDHIGH   20
-
 always @(negedge adc_clk)
 begin
     if(negedge_cnt[3:0] == mod_detect_reset_time)
